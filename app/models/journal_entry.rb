@@ -23,4 +23,5 @@
 #
 class JournalEntry < ApplicationRecord
   belongs_to :user
+  has_many :conversation_ais, dependent: :destroy
 end

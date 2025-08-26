@@ -19,4 +19,8 @@
 #
 class ConversationAi < ApplicationRecord
   belongs_to :journal_entry
+
+  validates :sender, presence: true, inclusion: { in: %w(user ai),
+    message: "%{value} is not a valid sender type" }
+  validates :content, presence: true, length: { minimum: 1 }
 end
