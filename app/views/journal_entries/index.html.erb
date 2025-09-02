@@ -4,11 +4,19 @@
 
 <div id="journal_entries">
   <% @journal_entries.each do |journal_entry| %>
-    <%= render journal_entry %>
-    <p>
-      <%= link_to "Show this journal entry", journal_entry %>
-    </p>
-  <% end %>
+    <%#= journal_entry.content %>
+<!---->    
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"> <%= journal_entry.title %> </h5>
+        <p class="card-text"> <%= journal_entry.content %> </p>
+        <%= link_to "Show this journal entry", journal_entry, class: "card-link" %> 
+        <%= link_to "Delete Journal", journal_entry, method: :delete, data: { confirm: "Are you sure?" }, class: "card-link" %> 
+
+      </div>
+    </div>
+  <%end%>
 </div>
+
 
 <%= link_to "New journal entry", new_journal_entry_path %>
