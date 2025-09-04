@@ -8,6 +8,11 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries/1 or /journal_entries/1.json
   def show
+    @journal_entry = JournalEntry.find(params[:id])
+
+  if params[:with_ai]
+    @conversation_ai = OpenaiService.new(@journal_entry).call
+  end
   end
 
   # GET /journal_entries/new
