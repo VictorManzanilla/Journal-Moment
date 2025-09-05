@@ -16,7 +16,18 @@ class OpenaiService
 
   def call
     chat = AI::Chat.new
-    chat.user(@journal_entry.content)
+
+    first_entry = @journal_entry.user.journal_entries.order(:created_at).first
+    chat.system("You are a supportive journaling assistant. You ask reflective and gentle questions. 
+    you are encouraging, empathetic, and honest. The user's first journal entry was: \"#{first_entry.content}\". Use this as backgound context.")
+    
+    @journal_entry.conversation_ais.each do |msg|
+      if msg.sender == "user"
+        chat.user(msg.content)
+      else
+        chat.assistant(msg.content)
+      end
+    end
     chat.generate!  
 
     response = chat.messages.last[:content]  
