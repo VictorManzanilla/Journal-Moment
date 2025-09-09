@@ -24,6 +24,7 @@ class JournalEntriesController < ApplicationController
   # POST /journal_entries or /journal_entries.json
   def create
     @journal_entry = JournalEntry.new(journal_entry_params)
+    @journal_entry.user_id = current_user.id
 
     respond_to do |format|
       if @journal_entry.save
