@@ -98,6 +98,8 @@ group :development do
   gem "rails-erd"
   gem "rufo"
   gem "specs_to_readme"
+  gem 'amazing_print'
+  gem "ai-chat"
 end
 
 group :development, :test do

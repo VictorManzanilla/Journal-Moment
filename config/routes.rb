@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+ root to: "journal_entries#index"
 
-  # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
+  devise_for :users
 
-  # get "/your_first_screen" => "pages#first"
+ 
+  resources :journal_entries do
+    resources :conversation_ais, only: [:create]
+  end
+  
+ 
   
 end

@@ -1,0 +1,52 @@
+<%= form_with(model: journal_entry) do |form| %>
+  <% if journal_entry.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(journal_entry.errors.count, "error") %> prohibited this journal_entry from being saved:</h2>
+
+      <ul>
+        <% journal_entry.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div>
+    <%= form.label :mood_label, style: "display: block" %>
+    <%= form.text_field :mood_label %>
+  </div>
+
+  <div>
+    <%= form.label :sentiment_score, style: "display: block" %>
+    <%= form.text_field :sentiment_score %>
+  </div>
+
+  <div>
+    <%= form.label :emotional_label, style: "display: block" %>
+    <%= form.text_field :emotional_label %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
