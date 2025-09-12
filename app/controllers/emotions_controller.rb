@@ -1,4 +1,5 @@
 class EmotionsController < ApplicationController
+  layout "emotion_page", only: [:new, :thank_you]
   before_action :authenticate_user!  
 
   def new
