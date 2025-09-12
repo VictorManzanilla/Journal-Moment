@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_19_233424) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_12_205337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_19_233424) do
     t.string "emotional_label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date", default: -> { "CURRENT_DATE" }, null: false
+    t.index ["user_id", "date"], name: "index_journal_entries_on_user_id_and_date", unique: true
     t.index ["user_id"], name: "index_journal_entries_on_user_id"
   end
 

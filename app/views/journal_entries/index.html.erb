@@ -2,6 +2,25 @@
 
 <h1>Journal Moment</h1>
 
+<%= month_calendar events: current_user.journal_entries, attribute: :created_at do |date, entries| %>
+  <div class="calendar-day">
+    <%= date.day %>
+
+    <% entries.each do |entry| %>
+      <div class="emotion">
+        <%= case entry.mood_label
+            when "happy" then "😀"
+            when "sad" then "😢"
+            when "anger" then "😡"
+            when "fear" then "😨"
+            else entry.mood_label
+            end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
 <div id="journal_entries">
   <% @journal_entries.each do |journal_entry| %>
     <%#= journal_entry.content %>
@@ -9,10 +28,14 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"> <%= journal_entry.title %> </h5>
+          
+
         <p class="card-text"> <%= journal_entry.content %> </p>
         <%= link_to "Show this journal entry", journal_entry, class: "card-link" %> 
         <%= link_to "Delete Journal", journal_entry, method: :delete, data: { confirm: "Are you sure?" }, class: "card-link" %> 
-
+       <div class="card-footer">
+        <small class="text-muted"><%= journal_entry.date %></small>
+       </div>
       </div>
     </div>
   <%end%>
