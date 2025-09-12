@@ -88,6 +88,11 @@ gem "carrierwave"
 gem "openai-chat"
 
 group :development do
+  gem "sidekiq-scheduler"
+  gem "sidekiq"
+  gem "sidekiq-cron"
+  gem "letter_opener"
+  gem "letter_opener_web"
   gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"

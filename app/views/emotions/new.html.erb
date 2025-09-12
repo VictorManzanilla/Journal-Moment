@@ -1,0 +1,8 @@
+<h2>How are you feeling today?</h2>
+
+<%= form_with url: emotions_path, method: :post do %>
+  <button type="submit" name="emotion" value="😊">😊</button>
+  <button type="submit" name="emotion" value="😔">😔</button>
+  <button type="submit" name="emotion" value="😡">😡</button>
+  <button type="submit" name="emotion" value="😌">😌</button>
+<% end %>
