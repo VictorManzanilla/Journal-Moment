@@ -28,5 +28,5 @@ class JournalEntry < ApplicationRecord
   has_many :conversation_ais, dependent: :destroy
 
   validates :mood_label, presence: true
-  validates :date, uniqueness: { scope: :user_id, message: "You've already logged a mood today." }
+  validates :date, uniqueness: { scope: :user_id, message: "You've already added mood for today." }
 end
