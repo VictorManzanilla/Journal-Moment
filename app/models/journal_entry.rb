@@ -16,8 +16,7 @@
 #
 # Indexes
 #
-#  index_journal_entries_on_user_id           (user_id)
-#  index_journal_entries_on_user_id_and_date  (user_id,date) UNIQUE
+#  index_journal_entries_on_user_id  (user_id)
 #
 # Foreign Keys
 #
@@ -27,6 +26,6 @@ class JournalEntry < ApplicationRecord
   belongs_to :user
   has_many :conversation_ais, dependent: :destroy
 
-  validates :mood_label, presence: true
-  validates :date, uniqueness: { scope: :user_id, message: "You've already added mood for today." }
+  # validates :mood_label, presence: true
+  # validates :date, uniqueness: { scope: :user_id, message: "You've already added mood for today." }
 end

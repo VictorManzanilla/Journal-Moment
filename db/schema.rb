@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_12_205337) do
+ActiveRecord::Schema[7.1].define(version: 2025_09_15_204348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_12_205337) do
     t.index ["journal_entry_id"], name: "index_conversation_ais_on_journal_entry_id"
   end
 
+  create_table "emotions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "emotion"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_emotions_on_user_id"
+  end
+
   create_table "journal_entries", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
@@ -35,7 +44,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_12_205337) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date", default: -> { "CURRENT_DATE" }, null: false
-    t.index ["user_id", "date"], name: "index_journal_entries_on_user_id_and_date", unique: true
     t.index ["user_id"], name: "index_journal_entries_on_user_id"
   end
 
@@ -52,5 +60,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_12_205337) do
   end
 
   add_foreign_key "conversation_ais", "journal_entries"
+  add_foreign_key "emotions", "users"
   add_foreign_key "journal_entries", "users"
 end
