@@ -87,12 +87,13 @@ gem "simple_form"
 gem "carrierwave"
 gem "openai-chat"
 
-group :development do
-  gem "sendgrid-ruby"
-  gem "simple_calendar"
   gem "sidekiq-scheduler"
   gem "sidekiq"
   gem "sidekiq-cron"
+
+group :development do
+  gem "sendgrid-ruby"
+  gem "simple_calendar"
   gem "letter_opener"
   gem "letter_opener_web"
   gem "annotate"
