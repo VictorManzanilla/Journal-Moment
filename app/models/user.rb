@@ -23,5 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :journal_entries, dependent: :destroy
+  has_many :emotions, dependent: :destroy
   has_many :conversation_ais, through: :journal_entries
+
 end

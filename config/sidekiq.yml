@@ -1,0 +1,10 @@
+:concurrency: 1
+
+:queues:
+  - default
+
+:schedule:
+  email_reminder_job:
+    cron: "* * * * *"  
+    class: "DailyReminderJob"
+    args: []           
