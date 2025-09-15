@@ -3,11 +3,13 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries or /journal_entries.json
   def index
-    @journal_entries = JournalEntry.all
+    @journal_entries = current_user.journal_entries
   end
 
   # GET /journal_entries/1 or /journal_entries/1.json
   def show
+    @journal_entry = JournalEntry.find(params[:id])
+    @messages = @journal_entry.conversation_ais.order(:created_at)
   end
 
   # GET /journal_entries/new
@@ -22,6 +24,7 @@ class JournalEntriesController < ApplicationController
   # POST /journal_entries or /journal_entries.json
   def create
     @journal_entry = JournalEntry.new(journal_entry_params)
+    @journal_entry.user_id = current_user.id
 
     respond_to do |format|
       if @journal_entry.save

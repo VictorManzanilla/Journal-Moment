@@ -1,7 +1,18 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.active_job.queue_adapter = :sidekiq
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = { host: "localhost", port: 3000 }
+
+
+
+
+  config.action_mailer.default_url_options =  {
+    host: "sturdy-yodel-46wg54pv4qjhqwqx-3000.app.github.dev",
+    protocol: "https"
+  }
   # Allow server to be hosted on any URL
   config.hosts.clear
   # Allow better_errors to work in online IDE

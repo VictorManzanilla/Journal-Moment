@@ -88,6 +88,12 @@ gem "carrierwave"
 gem "openai-chat"
 
 group :development do
+  gem "simple_calendar"
+  gem "sidekiq-scheduler"
+  gem "sidekiq"
+  gem "sidekiq-cron"
+  gem "letter_opener"
+  gem "letter_opener_web"
   gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"
@@ -98,6 +104,8 @@ group :development do
   gem "rails-erd"
   gem "rufo"
   gem "specs_to_readme"
+  gem 'amazing_print'
+  gem "ai-chat"
 end
 
 group :development, :test do

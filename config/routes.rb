@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
-  resources :journal_entries
-  devise_for :users
- root to: "journal_entries#index"
-  # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
+  require "sidekiq/web"
+  root to: "journal_entries#index"
 
-  # get "/your_first_screen" => "pages#first"
+
+  devise_for :users
+ resources :emotions, only: [:new, :create] do
+  collection do
+    get :thank_you
+  end
+end
+
+ 
+  resources :journal_entries do
+    resources :conversation_ais, only: [:create]
+  end
   
+ if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+end
+
+
+mount Sidekiq::Web => "/sidekiq"
+
 end

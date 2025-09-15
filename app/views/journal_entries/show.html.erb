@@ -1,10 +1,53 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @journal_entry %>
+<h2>Journal Entry</h2>
+<p><%= @journal_entry.content %></p>
 
 <div>
-  <%= link_to "Edit this journal entry", edit_journal_entry_path(@journal_entry) %> |
-  <%= link_to "Back to journal entries", journal_entries_path %>
+  <%= link_to "Back to journal entries", journal_entries_path %> |
+  <%= link_to "Continue Writing (no AI)", edit_journal_entry_path(@journal_entry) %>
 
   <%= button_to "Destroy this journal entry", @journal_entry, method: :delete %>
 </div>
+
+<hr>
+
+<h2>Conversation with AI</h2>
+
+<!-- Toggle button -->
+<button id="toggle-ai">💬 Ask AI</button>
+
+<!-- Conversation section (hidden by default) -->
+<div id="ai-conversation" style="display: none;">
+  <div class="messages">
+    <% @messages.each do |msg| %>
+      <p>
+        <strong><%= msg.sender.capitalize %>:</strong>
+        <%= msg.content %>
+      </p>
+    <% end %>
+  </div>
+
+  <!-- AI form -->
+  <%= form_with url: journal_entry_conversation_ais_path(@journal_entry), method: :post, local: true do %>
+    <%= text_area_tag :content, nil, placeholder: "Type your message..." %>
+    <%= submit_tag "Send to AI" %>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("toggle-ai");
+    const convoBox = document.getElementById("ai-conversation");
+
+    toggleBtn.addEventListener("click", () => {
+      if (convoBox.style.display === "none") {
+        convoBox.style.display = "block";
+        toggleBtn.innerText = "✖ Close AI Chat";
+      } else {
+        convoBox.style.display = "none";
+        toggleBtn.innerText = "💬 Ask AI";
+      }
+    });
+  });
+</script>
