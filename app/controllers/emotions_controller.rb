@@ -1,14 +1,13 @@
 class EmotionsController < ApplicationController
+  layout "emotion_page", only: [:new, :thank_you]
   before_action :authenticate_user!  
 
   def new
   end
 
   def create
-    current_user.journal_entries.create!(
-      title: "Daily Emotion Log",
-      content: params[:emotion]  
-    )
+  entry = current_user.emotions.find_or_initialize_by(date: Date.today)
+  entry.update!(mood_label: params[:emotion], title: "Daily Emotion Log")
 
     redirect_to thank_you_emotions_path
   end

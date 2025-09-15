@@ -4,6 +4,7 @@
 #
 #  id              :bigint           not null, primary key
 #  content         :text
+#  date            :date             not null
 #  emotional_label :string
 #  image           :string
 #  mood_label      :string
@@ -24,4 +25,7 @@
 class JournalEntry < ApplicationRecord
   belongs_to :user
   has_many :conversation_ais, dependent: :destroy
+
+  # validates :mood_label, presence: true
+  # validates :date, uniqueness: { scope: :user_id, message: "You've already added mood for today." }
 end

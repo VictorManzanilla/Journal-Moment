@@ -3,7 +3,7 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries or /journal_entries.json
   def index
-    @journal_entries = JournalEntry.all
+    @journal_entries = current_user.journal_entries
   end
 
   # GET /journal_entries/1 or /journal_entries/1.json
