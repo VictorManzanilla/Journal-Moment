@@ -88,6 +88,7 @@ gem "carrierwave"
 gem "openai-chat"
 
 group :development do
+  gem "sendgrid-ruby"
   gem "simple_calendar"
   gem "sidekiq-scheduler"
   gem "sidekiq"
