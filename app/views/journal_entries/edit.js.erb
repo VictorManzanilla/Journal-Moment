@@ -1,0 +1,19 @@
+document.getElementById("journal-entry-fields").innerHTML = `
+  <%= j form_with(model: @journal_entry, remote: true) do |form| %>
+<div>
+ <%= form.label :title%>
+  <%= form.text_field :title, value: @journal_entry.title %>
+  </div>
+    <div>
+      <%= form.label :content %>
+      <%= form.text_area :content, rows: 4 %>
+    </div>
+
+    <div>
+      <%= form.label :mood_label %>
+      <%= form.select :mood_label, ["happy", "sad", "anger", "fear"] %>
+    </div>
+
+    <%= form.submit "Save" %>
+  <% end %>
+`;
