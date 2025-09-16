@@ -90,6 +90,7 @@ gem "openai-chat"
   gem "sidekiq-scheduler"
   gem "sidekiq"
   gem "sidekiq-cron"
+  gem "ai-chat"
 
 group :development do
   gem "sendgrid-ruby"
@@ -107,7 +108,6 @@ group :development do
   gem "rufo"
   gem "specs_to_readme"
   gem 'amazing_print'
-  gem "ai-chat"
 end
 
 group :development, :test do
