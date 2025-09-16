@@ -1,6 +1,6 @@
 require "ai-chat"
 require "dotenv/load"
-require "amazing_print"
+# require "amazing_print"
 
 
 # ai = AI::Chat.new
