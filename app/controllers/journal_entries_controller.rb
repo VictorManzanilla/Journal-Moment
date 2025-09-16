@@ -19,6 +19,12 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries/1/edit
   def edit
+    @journal_entry = current_user.journal_entries.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js  
+  end
   end
 
   # POST /journal_entries or /journal_entries.json
@@ -29,10 +35,12 @@ class JournalEntriesController < ApplicationController
     respond_to do |format|
       if @journal_entry.save
         format.html { redirect_to journal_entry_url(@journal_entry), notice: "Journal entry was successfully created." }
-        format.json { render :show, status: :created, location: @journal_entry }
+        # format.json { render :show, status: :created, location: @journal_entry }
+        format.js 
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @journal_entry.errors, status: :unprocessable_entity }
+        # format.json { render json: @journal_entry.errors, status: :unprocessable_entity }
+        format.js 
       end
     end
   end
