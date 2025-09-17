@@ -89,7 +89,6 @@ gem "carrierwave"
 
   
   # gem "simple_calendar"
-
 group :development do
   gem "sidekiq-scheduler"
   gem "sidekiq"
