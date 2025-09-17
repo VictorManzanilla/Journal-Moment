@@ -13,3 +13,52 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background: #020024;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
+  
+}
+
+
+
+
+
+ /* emotions layout */
+ body.emotions-layout {
+  background: #020024;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.emotion-title {
+  position: absolute;
+  top: 0;
+
+
+}
+
+.emotions-container {
+  
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  width: 400px;
+  height: 400px;
+  text-align: center;
+}
+
+.emotion-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; 
+}

@@ -20,6 +20,6 @@
 class Emotion < ApplicationRecord
   belongs_to :user
 
-  validates :mood_label, presence: true
+  validates :emotion, presence: true
   validates :date, uniqueness: { scope: :user_id, message: "already logged today" }
 end

@@ -3,7 +3,7 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries or /journal_entries.json
   def index
-    @journal_entries = current_user.journal_entries
+    @journal_entries = current_user.journal_entries.order(created_at: :desc).page(params[:page]).per(9)
   end
 
   # GET /journal_entries/1 or /journal_entries/1.json
@@ -19,12 +19,6 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries/1/edit
   def edit
-    @journal_entry = current_user.journal_entries.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.js  
-  end
   end
 
   # POST /journal_entries or /journal_entries.json
@@ -36,11 +30,11 @@ class JournalEntriesController < ApplicationController
       if @journal_entry.save
         format.html { redirect_to journal_entry_url(@journal_entry), notice: "Journal entry was successfully created." }
         # format.json { render :show, status: :created, location: @journal_entry }
-        format.js 
+        
       else
         format.html { render :new, status: :unprocessable_entity }
         # format.json { render json: @journal_entry.errors, status: :unprocessable_entity }
-        format.js 
+        
       end
     end
   end

@@ -1,7 +1,0 @@
-document.getElementById("journal-entry-fields").innerHTML = `
-<p><strong>Title:</strong><%= j @journal_entry.title %></p>
-  <p><strong>Content:</strong> <%= j @journal_entry.content %></p>
-  <p><strong>Mood:</strong> <%= j @journal_entry.mood_label %></p>
-
-  <a href="<%= edit_journal_entry_path(@journal_entry) %>" data-remote="true">✏️ Edit again</a>
-`;

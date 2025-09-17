@@ -1,34 +1,45 @@
 <p style="color: green"><%= notice %></p>
 
 <h2>Journal Entry</h2>
-<p><%= @journal_entry.content %></p>
+<div class="container py-5 text-light" style="background-color: #0d1a2f;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <%= link_to "← Back", journal_entries_path, class: "btn btn-outline-light" %>
+    <%= button_to "Destroy", @journal_entry, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn btn-outline-danger" %>
+  </div>
 
-<div>
-  <%= link_to "Back to journal entries", journal_entries_path %> |
-  <%= link_to "Continue Writing (no AI)", edit_journal_entry_path(@journal_entry), remote: true %>
+  <hr class="border-light opacity-50">
 
-  <%= button_to "Destroy this journal entry", @journal_entry, method: :delete %>
-</div>
+  <h2 class="display-5 text-center mb-4">Journal Entry</h2>
 
-<hr>
-<div id="journal-entry-fields">
-    <p><strong>title:</strong> <%= @journal_entry.title %></p>
+  <%= turbo_frame_tag @journal_entry do %>
+    <div class="card bg-dark text-light border-secondary">
+      <div class="card-body">
+        <p class="card-text fs-5">
+          <strong>Title:</strong> <%= @journal_entry.title %>
+        </p>
+        <p class="card-text fs-5">
+          <strong>Content:</strong> <%= @journal_entry.content %>
+        </p>
+        <p class="card-text fs-5">
+          <strong>Mood:</strong> <%= @journal_entry.mood_label %>
+        </p>
 
-  <p><strong>Content:</strong> <%= @journal_entry.content %></p>
-  <p><strong>Mood:</strong> <%= @journal_entry.mood_label %></p>
-
-  <%= link_to "✏️ Edit", edit_journal_entry_path(@journal_entry), remote: true %>
-</div>
-
+        <div class="mt-4 text-center">
+          <%= link_to "✏️ Edit", edit_journal_entry_path(@journal_entry), 
+              data: { turbo_frame: dom_id(@journal_entry)}, class: "btn btn-outline-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
 <hr>
 
 <h2>Conversation with AI</h2>
 
-<!-- Toggle button -->
+<!-- Toggle btn -->
 <button id="toggle-ai">💬 Ask AI</button>
 
-<!-- Conversation section -->
+<!-- Conversation -->
 <div id="ai-conversation" style="display: none;">
   <div class="messages">
     <% @messages.each do |msg| %>
@@ -44,6 +55,8 @@
     <%= text_area_tag :content, nil, placeholder: "Type your message..." %>
     <%= submit_tag "Send to AI" %>
   <% end %>
+</div>
+<!--Container end -->
 </div>
 
 <script>

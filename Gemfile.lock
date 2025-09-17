@@ -519,6 +519,7 @@ DEPENDENCIES
   http
   importmap-rails
   jbuilder
+  kaminari
   letter_opener
   letter_opener_web
   pg (~> 1.1)

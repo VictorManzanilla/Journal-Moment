@@ -1,10 +1,40 @@
-<h1>Editing journal entry</h1>
+<!--<h1>Editing journal entry</h1>
 
-<%= render "form", journal_entry: @journal_entry %>
-
+<%#= render "form", journal_entry: @journal_entry %>-->
+<!--
 <br>
 
 <div>
-  <%= link_to "Show this journal entry", @journal_entry %> |
-  <%= link_to "Back to journal entries", journal_entries_path %>
-</div>
+  <%#= link_to "Show this journal entry", @journal_entry %> |-->
+  <%#= link_to "Back to journal entries", journal_entries_path %>
+<!--</div>-->
+
+
+<%#= turbo_frame_tag @journal_entry do %>
+  <%#= form_with(model: @journal_entry) do |form| %>
+<!--    <div>-->
+      <%#= form.label :title %>
+      <%#= form.text_field :title %>
+<!--    </div>
+
+    <div>
+      <%#= form.label :content %>-->
+      <%#= form.text_area :content %>
+<!--    </div>
+
+    <div>
+      <%#= form.label :mood_label %>-->
+      <%#= form.select :mood_label, ["joy", "sad", "anger", "fear"] %>
+<!--    </div>
+
+    <%#= form.submit "Save" %>-->
+  <%# end %>
+<%# end %>
+
+<%= turbo_frame_tag @journal_entry do %>
+  <div class="card bg-dark text-light border-secondary">
+  <div class="card-body">
+      <%= render "form", journal_entry: @journal_entry %>
+  </div>
+  </div>
+<% end %>
