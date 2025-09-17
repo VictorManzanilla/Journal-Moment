@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
 <h2>Journal Entry</h2>
-<p><%= @journal_entry.content %></p>
-
+<!--<p><%#= @journal_entry.content %></p>
+-->
 <div>
   <%= link_to "Back to journal entries", journal_entries_path %> |
-  <%= link_to "Continue Writing (no AI)", edit_journal_entry_path(@journal_entry), remote: true %>
-
+  <%#= link_to "Continue Writing (no AI)", edit_journal_entry_path(@journal_entry), remote: true %>
+<!---->
   <%= button_to "Destroy this journal entry", @journal_entry, method: :delete %>
 </div>
 
@@ -27,10 +27,10 @@
 
 <h2>Conversation with AI</h2>
 
-<!-- Toggle button -->
+<!-- Toggle btn -->
 <button id="toggle-ai">💬 Ask AI</button>
 
-<!-- Conversation section -->
+<!-- Conversation -->
 <div id="ai-conversation" style="display: none;">
   <div class="messages">
     <% @messages.each do |msg| %>
