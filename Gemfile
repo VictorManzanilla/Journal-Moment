@@ -86,7 +86,7 @@ gem "table_print"
 gem "simple_form"
 gem "carrierwave"
 # gem "openai-chat"
-
+gem 'kaminari'
   
   # gem "simple_calendar"
 group :development do
