@@ -1,8 +1,26 @@
-<h2>How are you feeling today?</h2>
+
+
+<div class="emotion-subtitle"><h2>How are you feeling today?</h2></div>
 
 <%= form_with url: emotions_path, method: :post do %>
-  <button type="submit" name="emotion" value="happy">😊</button>
-  <button type="submit" name="emotion" value="sad">😔</button>
-  <button type="submit" name="emotion" value="anger">😡</button>
-  <button type="submit" name="emotion" value="fear">😨</button>
+<div class="container">
+  <div class="row row-cols-2 gy-5">
+    <div class="col">
+    <button class="btn btn-dark emotion-btn rounded-circle" type="submit" name="emotion" value="joy">Joy</button>
+</div>
+    <div class="col">    
+    <button class="btn btn-dark emotion-btn rounded-circle" type="submit" name="emotion" value="sad">Sad</button>
+</div>
+    <div class="col">    
+    <button class="btn btn-dark emotion-btn rounded-circle" type="submit" name="emotion" value="anger">Anger</i></button>
+</div>
+    <div class="col">    
+    <button class="btn btn-dark emotion-btn rounded-circle" type="submit" name="emotion" value="fear">Fear</button>
+</div>
+  </div>
+</div>
+   <!-- <button class="btn btn-primary rounded-circle" type="submit" name="emotion" value="happy"><i class="fa-regular fa-face-smile"></i></button>
+    <button class="btn btn-primary rounded-circle" type="submit" name="emotion" value="sad"><i class="fa-regular fa-face-sad-cry"></i></button>
+    <button class="btn btn-primary rounded-circle" type="submit" name="emotion" value="anger"><i class="fa-regular fa-face-angry"></i></button>
+    <button class="btn btn-primary rounded-circle" type="submit" name="emotion" value="fear">😨</button>-->
 <% end %>
