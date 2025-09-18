@@ -35,13 +35,12 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  color: white;
 }
 
 .emotion-title {
   position: absolute;
   top: 0;
-
-
 }
 
 .emotions-container {
