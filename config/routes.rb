@@ -1,4 +1,4 @@
- require "sidekiq/web"
+#  require "sidekiq/web"
 
  Rails.application.routes.draw do
  root to: "journal_entries#index"
@@ -20,6 +20,6 @@
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  mount Sidekiq::Web => "/sidekiq"
+  # mount Sidekiq::Web => "/sidekiq"
 
 end

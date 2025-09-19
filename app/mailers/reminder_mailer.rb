@@ -1,5 +1,5 @@
 class ReminderMailer < ApplicationMailer
-  default from: "no-reply@yourapp.com"
+  default from: "victor.manzanilla@valpo.edu"
 
   def daily_reminder(user)
     @user = user
