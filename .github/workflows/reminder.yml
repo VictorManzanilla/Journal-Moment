@@ -1,0 +1,14 @@
+name: Daily Reminder
+
+on:
+  schedule:
+    - cron: "0 14 * * *" 
+  workflow_dispatch: 
+
+jobs:
+  call-rails-endpoint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Rails Daily Reminder
+        run: |
+          curl -X POST https://journal-moment.onrender.com/reminders/run
