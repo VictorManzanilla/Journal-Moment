@@ -20,6 +20,8 @@
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  post "/reminders/run", to: "reminders#run"
+
   # mount Sidekiq::Web => "/sidekiq"
 
 end

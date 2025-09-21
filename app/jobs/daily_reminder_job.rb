@@ -3,7 +3,7 @@ class DailyReminderJob < ApplicationJob
 
     def perform
       User.find_each do |user|
-        ReminderMailer.daily_reminder(user).deliver_now
+        ReminderMailer.daily_reminder(user).deliver_later
       end
     end
 end
