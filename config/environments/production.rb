@@ -69,9 +69,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config/environments/production.rb
-config.active_job.queue_adapter = :solid_queue
-Solid::Queue.db_config = Rails.configuration.database_configuration["production"]
-
+  config.active_job.queue_adapter = :solid_queue
   config.solid_queue.connects_to = { database: { writing: :queue } }
   # config.active_job.queue_name_prefix = "rails_template_production"
 
