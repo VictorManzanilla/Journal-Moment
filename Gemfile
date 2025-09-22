@@ -93,9 +93,9 @@ gem "carrierwave"
   # gem "sidekiq-cron"
   gem "ai-chat"
   gem "simple_calendar"
-  gem "solid_queue"
+  # gem "solid_queue"
   gem "sendgrid-ruby"
-  gem "solid"
+  # gem "solid"
  
 group :development do
   #  gem "simple_calendar"
