@@ -98,7 +98,6 @@ gem "carrierwave"
   gem "solid"
  
 group :development do
-  #  gem 'whenever', require: false
   #  gem "simple_calendar"
   # gem "solid_queue"
   # gem "sendgrid-ruby"
