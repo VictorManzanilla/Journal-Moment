@@ -103,8 +103,8 @@ group :development do
   # gem "sendgrid-ruby"
     # gem 'kaminari'
     # gem "ai-chat"
-  gem "letter_opener"
-  gem "letter_opener_web"
+  # gem "letter_opener"
+  # gem "letter_opener_web"
   gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"
