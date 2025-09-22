@@ -87,23 +87,23 @@ gem "simple_form"
 gem "carrierwave"
 # gem "openai-chat"
 
-  # gem 'kaminari'
+  gem 'kaminari'
   # gem "sidekiq-scheduler"
   # gem "sidekiq"
   # gem "sidekiq-cron"
-  # gem "ai-chat"
-  # gem "simple_calendar"
+  gem "ai-chat"
+  gem "simple_calendar"
   gem "solid_queue"
   gem "sendgrid-ruby"
   gem "solid"
  
 group :development do
   #  gem 'whenever', require: false
-   gem "simple_calendar"
+  #  gem "simple_calendar"
   # gem "solid_queue"
   # gem "sendgrid-ruby"
-    gem 'kaminari'
-    gem "ai-chat"
+    # gem 'kaminari'
+    # gem "ai-chat"
   gem "letter_opener"
   gem "letter_opener_web"
   gem "annotate"
