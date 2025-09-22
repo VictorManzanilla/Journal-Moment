@@ -1,11 +1,10 @@
 #  require "sidekiq/web"
 
  Rails.application.routes.draw do
- root to: "journal_entries#index"
+  root to: "pages#landing"
 
 
   devise_for :users
-
   resources :emotions, only: [:new, :create] do
     collection do
       get :thank_you
