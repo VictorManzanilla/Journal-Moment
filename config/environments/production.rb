@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-require "solid"
+# require "solid"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -68,7 +68,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  config.active_job.queue_adapter = :solid_
+  config.active_job.queue_adapter = :solid_queue
   config.solid_queue.connects_to = { database: { writing: :queue } }
   # config.active_job.queue_name_prefix = "rails_template_production"
 
@@ -76,7 +76,7 @@ Rails.application.configure do
 ########## Sendgrid ##########################################################
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  user_name: ENV['SENDGRID_USERNAME'],
+  user_name: "apikey",
   password: ENV['SENDGRID_PASSWORD'],
   domain: 'https://journal-moment.onrender.com',
   address: 'smtp.sendgrid.net',
