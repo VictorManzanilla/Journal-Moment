@@ -15,9 +15,9 @@
     resources :conversation_ais, only: [:create]
   end
   
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+  # if Rails.env.development?
+  #   mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  # end
 
   post "/reminders/run", to: "reminders#run"
 

@@ -3,7 +3,7 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries or /journal_entries.json
   def index
-    @journal_entries = current_user.journal_entries.order(created_at: :desc).page(params[:page]).per(9)
+    @journal_entries = current_user.journal_entries.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   # GET /journal_entries/1 or /journal_entries/1.json

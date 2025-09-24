@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Journal Moment</h1>
-
+<div class="simple_calendar"
 <%= month_calendar events: current_user.journal_entries, attribute: :created_at do |date, entries| %>
   <div class="calendar-day">
     <%= date.day %>
@@ -19,12 +19,13 @@
     <% end %>
   </div>
 <% end %>
+</div>
 
 <div class="container">
   <div class="row row-cols-md-3 g-4">
     <% @journal_entries.each do |journal_entry| %>
     <%#= journal_entry.title%>
-<!---->      <div class="col">
+      <div class="col">
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title"> <%= journal_entry.title %> </h5>

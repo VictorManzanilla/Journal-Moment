@@ -6,10 +6,13 @@ class EmotionsController < ApplicationController
   end
 
   def create
-  entry = current_user.journal_entries.find_or_initialize_by(date: Date.today)
-  entry.update!(mood_label: params[:emotion], title: "Daily Emotion Log")
+  entry = current_user.journal_entries.create!(
+  mood_label: params[:emotion], 
+  title: "Daily Emotion Log",
+  date: Date.today
+)
 
-    redirect_to thank_you_emotions_path
+    redirect_to journal_entries_path
   end
 
   def thank_you
