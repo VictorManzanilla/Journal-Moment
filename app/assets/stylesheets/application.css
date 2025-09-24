@@ -27,7 +27,7 @@ body {
 
 
 
- /* emotions layout */
+ /************************ emotions layout ****************************************************/
  body.emotions-layout {
   background: #020024;
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
@@ -60,4 +60,10 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 2rem; 
+}
+/* ******************************* calendar styling ******************************************************/
+.simple_calendar {
+  border: 2px solid #333;   
+  border-radius: 8px;       
+  padding: 10px;           
 }
