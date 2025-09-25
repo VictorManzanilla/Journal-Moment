@@ -26,6 +26,8 @@ class JournalEntry < ApplicationRecord
   belongs_to :user
   has_many :conversation_ais, dependent: :destroy
 
+  # NOTE: Would love to see your uncommented code deleted or you should leave a note about what you're planning to do with this code in the future for your future self.
+  
   # validates :mood_label, presence: true
   # validates :date, uniqueness: { scope: :user_id, message: "You've already added mood for today." }
 end

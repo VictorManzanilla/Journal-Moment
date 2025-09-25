@@ -1,4 +1,4 @@
-
+<!-- NOTE: You need to have just one application.html.erb. You don't need to duplicate that code anywhere else. -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +9,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
        <%= render partial: "shared/cdn_assets" %>
+
+    <!--NOTE: No need to use inline styles at all. All CSS should go to stylesheets in assets folder. Also indentation here is crazy. -->
     <style>
  body {
       min-height: 100vh;

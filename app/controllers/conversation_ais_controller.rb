@@ -1,5 +1,5 @@
 class ConversationAisController < ApplicationController
-
+# NOTE: Weird spacing here. Make sure to use a formatter like Rubocop in the future
   def create
     @journal_entry = JournalEntry.find(params[:journal_entry_id])
 

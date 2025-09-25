@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Journal Moment</h1>
+<%# NOTE: It seems like you're missing the closing end tag for this loop bellow %>
 <div class="simple_calendar"
 <%= month_calendar events: current_user.journal_entries, attribute: :created_at do |date, entries| %>
   <div class="calendar-day">
@@ -45,6 +46,7 @@
   </div>
 </div>
 
+<!--NOTE: Great job on building pagination! Would love to see some styling here too.-->
 <div class="d-flex justify-content-center mt-4">
   <%= paginate @journal_entries %>
 </div>
