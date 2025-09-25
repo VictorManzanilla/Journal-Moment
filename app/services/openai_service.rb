@@ -10,6 +10,7 @@ require "dotenv/load"
 
 # ap ai.generate!
 class OpenaiService
+  # NOTE: Good job on implementing services!
   def initialize(journal_entry)
     @journal_entry = journal_entry
   end
