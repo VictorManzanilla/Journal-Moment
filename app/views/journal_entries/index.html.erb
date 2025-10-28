@@ -29,14 +29,17 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title"> <%= journal_entry.title %> </h5>
-            <p class="card-text"> <%= journal_entry.content %> </p>
+            <p class="card-text"> <%= truncate(journal_entry.content, length: 50) %></p>
           </div>
       <div class="card-footer d-flex justify-content-between align-items-center">
-            <small class="text-muted"><%= journal_entry.date %></small>
+            <small class="text-muted"><%= journal_entry.date.strftime("%B %d, %Y") %></small>
             <div>
         <%= link_to "Show", journal_entry, class: "btn btn-sm btn-outline-primary" %> 
-      <%= link_to "Delete", journal_entry, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-       class: "btn btn-sm btn-outline-danger" %>
+        <%= link_to "Delete", journal_entry,
+              method: :delete,
+              data: { confirm: "Are you sure?" },
+             class: "btn btn-sm btn-outline-danger" 
+          %>
             </div>
           </div>
         </div>

@@ -65,7 +65,7 @@ class JournalEntriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_journal_entry
-      @journal_entry = JournalEntry.find(params[:id])
+      @journal_entry = current_user.journal_entries.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
