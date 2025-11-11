@@ -1,11 +1,9 @@
- require "sidekiq/web"
-
+#  require "sidekiq/web"
  Rails.application.routes.draw do
- root to: "journal_entries#index"
+  root to: "pages#landing"
 
 
   devise_for :users
-
   resources :emotions, only: [:new, :create] do
     collection do
       get :thank_you
@@ -16,10 +14,12 @@
     resources :conversation_ais, only: [:create]
   end
   
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+  # if Rails.env.development?
+  #   mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  # end
 
-  mount Sidekiq::Web => "/sidekiq"
+  post "/reminders/run", to: "reminders#run"
+
+  # mount Sidekiq::Web => "/sidekiq"
 
 end

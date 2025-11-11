@@ -3,7 +3,7 @@ class JournalEntriesController < ApplicationController
 
   # GET /journal_entries or /journal_entries.json
   def index
-    @journal_entries = current_user.journal_entries.order(created_at: :desc).page(params[:page]).per(9)
+    @journal_entries = current_user.journal_entries.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   # GET /journal_entries/1 or /journal_entries/1.json
@@ -65,7 +65,7 @@ class JournalEntriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_journal_entry
-      @journal_entry = JournalEntry.find(params[:id])
+      @journal_entry = current_user.journal_entries.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

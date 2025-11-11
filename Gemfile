@@ -85,22 +85,25 @@ gem "sqlite3", "~> 1.4"
 gem "table_print"
 gem "simple_form"
 gem "carrierwave"
-# gem "openai-chat"
 
-  # gem 'kaminari'
-  gem "sidekiq-scheduler"
-  gem "sidekiq"
-  gem "sidekiq-cron"
-  # gem "ai-chat"
-  # gem "simple_calendar"
-group :development do
-    gem 'kaminari'
-    gem "ai-chat"
-  # gem "sendgrid-ruby"
-  gem "solid_queue"
+ 
+  # gem "sidekiq-scheduler"
+  # gem "sidekiq"
+  # gem "sidekiq-cron"
+  gem "ai-chat"
   gem "simple_calendar"
-  gem "letter_opener"
-  gem "letter_opener_web"
+  gem "sendgrid-ruby"
+  gem 'kaminari'
+  # gem "solid"
+
+group :production do
+ # gem "solid_queue"
+end
+
+group :development do
+  # gem "solid_queue" 
+  # gem "letter_opener"
+  # gem "letter_opener_web"
   gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"

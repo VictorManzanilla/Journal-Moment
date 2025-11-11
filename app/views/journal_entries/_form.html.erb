@@ -1,4 +1,6 @@
-
+<div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="p-4 rounded-4  max-w-sm w-100 text-center">
+    
 <%= form_with(model: journal_entry) do |form| %>
   <% if journal_entry.errors.any? %>
     <div style="color: red">
@@ -10,29 +12,30 @@
       </ul>
     </div>
   <% end %>
+<div class="mb-3 text-start">
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-control rounded-pill", placeholder: "Enter a title" %>
+      </div>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
-  </div>
+ <div class="mb-3 text-start">
+        <%= form.label :content, class: "form-label" %>
+        <%= form.text_area :content, class: "form-control rounded-4", placeholder: "Write your entry...", rows: 10 %>
+      </div>
   
-  <div>
-    <%= form.label :mood_label, style: "display: block" %>
-    <%= form.select :mood_label, ["joy", "sad", "anger", "fear"] %>
-  </div>
+  <div class="mb-3 text-start">
+        <%= form.label :mood_label, class: "form-label" %>
+        <%= form.select :mood_label, ["joy", "sad", "anger", "fear"], {}, class: "form-select rounded-pill" %>
+      </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+      <div class="d-grid gap-2 mt-4">
+        <%= form.submit class: "btn btn-primary btn-lg rounded-pill" %>
+      </div>
 <% end %>
-
+</div>
+</div>
 <br>
 
+<!--Look at this again------------------------------------------------------------------>
 <div>
   <% if journal_entry.persisted? %>
     <%= link_to "Show this journal entry", journal_entry %> |
