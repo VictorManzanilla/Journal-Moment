@@ -72,7 +72,7 @@ group :test do
 end
 
 # AppDev Gems
-# ===========
+# These gems are available everywhere
 gem "active_link_to"
 gem "appdev_support"
 gem "awesome_print"
@@ -90,12 +90,14 @@ gem "carrierwave"
   # gem "sidekiq-scheduler"
   # gem "sidekiq"
   # gem "sidekiq-cron"
-  gem "ai-chat"
-  gem "simple_calendar"
-  gem "sendgrid-ruby"
-  gem 'kaminari'
+gem "ai-chat"
+gem "simple_calendar"
+  # gem "sendgrid-ruby"
+gem 'kaminari'
   # gem "solid"
+gem "chartkick"
 
+  #only for production
 group :production do
  # gem "solid_queue"
 end
