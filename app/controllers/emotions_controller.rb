@@ -5,9 +5,7 @@ class EmotionsController < ApplicationController
   def new
   end
 
-  def create
-  # NOTE: Indentation here is a little bit off.
-  
+  def create  
   entry = current_user.journal_entries.create!(
   mood_label: params[:emotion], 
   title: "Daily Emotion Log",

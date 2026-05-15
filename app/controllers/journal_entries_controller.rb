@@ -9,7 +9,6 @@ class JournalEntriesController < ApplicationController
   # GET /journal_entries/1 or /journal_entries/1.json
   def show
     @journal_entry = JournalEntry.find(params[:id])
-    @messages = @journal_entry.conversation_ais.order(:created_at)
   end
 
   # GET /journal_entries/new

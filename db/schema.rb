@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_09_15_204348) do
+ActiveRecord::Schema[7.1].define(version: 2026_05_15_002048) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
-
-  create_table "conversation_ais", force: :cascade do |t|
-    t.bigint "journal_entry_id", null: false
-    t.string "sender"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["journal_entry_id"], name: "index_conversation_ais_on_journal_entry_id"
-  end
 
   create_table "emotions", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -59,7 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_15_204348) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "conversation_ais", "journal_entries"
   add_foreign_key "emotions", "users"
   add_foreign_key "journal_entries", "users"
 end
