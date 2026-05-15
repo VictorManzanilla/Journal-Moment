@@ -90,7 +90,7 @@ gem "carrierwave"
   # gem "sidekiq-scheduler"
   # gem "sidekiq"
   # gem "sidekiq-cron"
-gem "ai-chat"
+# gem "ai-chat"
 gem "simple_calendar"
   # gem "sendgrid-ruby"
 gem 'kaminari'
